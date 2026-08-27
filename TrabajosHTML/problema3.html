@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <title>Formulario de registro - Mi web</title>
+            <meta charset="UTF-8">
+        </head>
+        <body>
+            <form action="" method="get">
+                <h1>Datos personales</h1>
+                <h2>Datos principales</h2>
+                <p>
+                    Nombre/s: <input type="text" name="nombre">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Apellido/s: <input type="text" name="apellido">
+                </p>
+                <p>
+                    Sexo: <select name="sexo">
+                        <option value="H">Hombre</option>
+                        <option value="M">Mujer</option>
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Estado Civil: <select name="estado_civil">
+                        <option value="CH">Casado/a con hijos</option>
+                        <option value="CS">Casado/a sin hijos</option>
+                        <option value="PH">En pareja con hijos</option>
+                        <option value="PS">En pareja sin hijos</option>
+                        <option value="SH">Soltero/a con hijos</option>
+                        <option value="SS" selected>Soltero/a sin hijos</option>
+                        <option value="VH">Viudo/a con hijos</option>
+                        <option value="VS">Viudo/a sin hijos</option>
+                    </select>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Mail: <input type="text" name="mail">
+                </p>
+                <h1>Condiciones de ingreso</h1>
+                <p>
+                    Deseo recibir información sobre novedades y ofertas <input type="checkbox" name="NF" checked>
+                    <br>
+                    Declaro haber leído y aceptar las condiciones generales del programa y la protección de datos <input type="checkbox" name="CGyNPD">
+                    <br>
+                    <a href="">Condiciones generales</a>
+                </p>
+                <p>
+                    Contraseña: <input type="password" name="contraseña">
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Repetir contraseña: <input type="password" name="repeticion">
+                </p>
+                <input type="submit">
+            </form>        
+        </body>            
+    </html>
