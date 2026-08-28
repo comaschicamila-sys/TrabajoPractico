@@ -1,0 +1,16 @@
+/* Regla compartida para párrafos y títulos h6 */
+p, h6 {
+  font-family: Arial, sans-serif;
+  color: #2d71ac;
+  font-size: 20px;
+}
+
+/* El párrafo conserva peso normal */
+p {
+  font-weight: normal;
+}
+
+/* h6 se muestra en negrita por defecto */
+h6 {
+  font-weight: bold;
+}
