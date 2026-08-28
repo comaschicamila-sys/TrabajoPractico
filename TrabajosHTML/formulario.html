@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario de registro - Mi web.</title>
+	<style>
+		:root {
+			--ink: #1f4e99;
+			--muted: #627fa8;
+			--paper: #eef4f7;
+			--panel: #ffffff;
+			--accent: #18ac9f;
+			--accent-dark: #034e49;
+			--line: #d8e1e7;
+			--soft: #f0fdfa;
+		}
+
+		* { box-sizing: border-box; }
+
+		body {
+			margin: 0;
+			color: var(--ink);
+			background: var(--paper);
+			font-family: Georgia, 'Times New Roman', serif;
+			line-height: 1.5;
+		}
+
+		main { width: min(1100px, calc(100% - 32px)); margin: 0 auto; padding: 48px 0; }
+		header { margin-bottom: 32px; }
+		.eyebrow { margin: 0 0 8px; color: var(--accent); font: 700 0.78rem/1 Arial, sans-serif; letter-spacing: 0.12em; text-transform: uppercase; }
+		h1 { margin: 0 0 10px; font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1; font-weight: 400; }
+		header p { max-width: 700px; margin: 0; color: var(--muted); font-size: 1.05rem; }
+		.layout { display: grid; gap: 24px; }
+		section { padding: 28px; background: var(--panel); border: 1px solid var(--line); border-top: 5px solid var(--accent); }
+		h2 { margin: 0 0 6px; font-size: 1.65rem; }
+		h3 { margin: 28px 0 14px; color: var(--accent-dark); font-size: 1.15rem; }
+		.section-intro { margin: 0 0 22px; color: var(--muted); }
+		fieldset { margin: 0; padding: 0; border: 0; }
+		legend { padding: 0; color: var(--accent-dark); font-size: 1.15rem; font-weight: 700; }
+		.fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+		.fields .wide { grid-column: 1 / -1; }
+		label { display: grid; gap: 6px; color: var(--ink); font-size: 0.98rem; }
+		input, select, textarea { width: 100%; padding: 11px 12px; color: var(--ink); background: #fff; border: 1px solid #b9c8d2; border-radius: 3px; font: inherit; }
+		textarea { min-height: 100px; resize: vertical; }
+		input:focus, select:focus, textarea:focus { outline: 2px solid #5eead4; outline-offset: 1px; border-color: var(--accent); }
+		.options, .checks { display: grid; gap: 10px; margin-top: 10px; }
+		.option, .check { display: flex; grid-template-columns: none; align-items: flex-start; gap: 8px; }
+		.option input, .check input { width: auto; margin-top: 5px; accent-color: var(--accent); }
+		.check a { color: var(--accent-dark); }
+		button { margin-top: 24px; padding: 12px 20px; color: #fff; background: var(--accent); border: 0; border-radius: 3px; cursor: pointer; font: 700 0.95rem Arial, sans-serif; }
+		button:hover, button:focus-visible { background: var(--accent-dark); }
+		.note { margin-top: 12px; padding: 12px; color: var(--accent-dark); background: var(--soft); border-left: 3px solid var(--accent); font-size: 0.92rem; }
+		footer { padding: 24px 0 4px; color: var(--muted); font: 0.85rem Arial, sans-serif; text-align: center; }
+
+		@media (max-width: 680px) {
+			main { padding: 28px 0; }
+			section { padding: 22px; }
+			.fields { grid-template-columns: 1fr; }
+			.fields .wide { grid-column: auto; }
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<header>
+			<p class="eyebrow">Mi web</p>
+			<h1>Formularios en línea</h1>
+			<p>Ingreso al sistema, carga de curriculum vitae y registro de nuevos usuarios.</p>
+		</header>
+
+		<div class="layout">
+			<section aria-labelledby="ingreso-titulo">
+				<h2 id="ingreso-titulo">1. Ingreso al sistema</h2>
+				<p class="section-intro">Completa tus datos. La información se envía inicialmente mediante GET para poder visualizarla en la dirección del navegador.</p>
+				<form action="" method="get">
+					<div class="fields">
+						<label>Nombre de usuario
+							<input type="text" name="usuario" autocomplete="username" required>
+						</label>
+						<label>Contraseña
+							<input type="password" name="clave" autocomplete="current-password" required>
+						</label>
+					</div>
+					<p><a href="#recuperar">¿Olvidaste tu contraseña?</a></p>
+					<button type="submit">Ingresar</button>
+				</form>
+				<p class="note" id="recuperar">Para recuperar la contraseña, contacta al administrador del sistema.</p>
+			</section>
+
+			<section aria-labelledby="cv-titulo">
+				<h2 id="cv-titulo">2. Curriculum Vitae en línea</h2>
+				<p class="section-intro">Carga la información necesaria para presentar tu perfil profesional.</p>
+				<form action="" method="get">
+					<fieldset>
+						<legend>Datos personales</legend>
+						<div class="fields">
+							<label>Nombre completo<input type="text" name="cv_nombre" required></label>
+							<label>Documento de identidad<input type="text" name="cv_documento"></label>
+							<label>Fecha de nacimiento<input type="date" name="cv_nacimiento"></label>
+							<label>Nacionalidad<input type="text" name="cv_nacionalidad"></label>
+							<label>Correo electrónico<input type="email" name="cv_correo" required></label>
+							<label>Teléfono<input type="tel" name="cv_telefono"></label>
+							<label>Dirección<input type="text" name="cv_direccion"></label>
+							<label>Localidad y provincia<input type="text" name="cv_ubicacion"></label>
+							<label class="wide">Perfil profesional<textarea name="cv_perfil" placeholder="Describe brevemente tus objetivos y fortalezas."></textarea></label>
+						</div>
+					</fieldset>
+
+					<h3>Información académica</h3>
+					<div class="fields">
+						<label>Título obtenido<input type="text" name="cv_titulo"></label>
+						<label>Institución educativa<input type="text" name="cv_institucion"></label>
+						<label>Nivel de estudios<select name="cv_nivel"><option>Secundario</option><option>Terciario</option><option>Universitario</option><option>Posgrado</option></select></label>
+						<label>Año de finalización<input type="number" name="cv_anio" min="1900" max="2100"></label>
+						<label class="wide">Cursos y certificaciones<textarea name="cv_cursos"></textarea></label>
+						<label class="wide">Idiomas y nivel<textarea name="cv_idiomas"></textarea></label>
+					</div>
+
+					<h3>Experiencia laboral</h3>
+					<div class="fields">
+						<label>Empresa<input type="text" name="cv_empresa"></label>
+						<label>Puesto<input type="text" name="cv_puesto"></label>
+						<label>Fecha de inicio<input type="month" name="cv_inicio"></label>
+						<label>Fecha de finalización<input type="month" name="cv_fin"></label>
+						<label class="wide">Tareas y responsabilidades<textarea name="cv_responsabilidades"></textarea></label>
+						<label class="wide">Logros destacados<textarea name="cv_logros"></textarea></label>
+					</div>
+
+					<h3>Referencias</h3>
+					<div class="fields">
+						<label>Nombre de referencia<input type="text" name="cv_referencia_nombre"></label>
+						<label>Empresa y cargo<input type="text" name="cv_referencia_cargo"></label>
+						<label>Teléfono de referencia<input type="tel" name="cv_referencia_telefono"></label>
+						<label>Correo de referencia<input type="email" name="cv_referencia_correo"></label>
+					</div>
+					<button type="submit">Guardar CV</button>
+				</form>
+			</section>
+
+			<section aria-labelledby="registro-titulo">
+				<h2 id="registro-titulo">3. Formulario de registro</h2>
+				<p class="section-intro">Completa tus datos para crear una cuenta en Mi web.</p>
+				<form action="" method="get">
+					<h3>Datos personales</h3>
+					<div class="fields">
+						<label>Nombre<input type="text" name="nombre" required></label>
+						<label>Apellidos<input type="text" name="apellidos" required></label>
+						<label>Correo electrónico<input type="email" name="correo" required></label>
+					</div>
+					<div class="options">
+						<span>Sexo</span>
+						<label class="option"><input type="radio" name="sexo" value="hombre" required> Hombre</label>
+						<label class="option"><input type="radio" name="sexo" value="mujer"> Mujer</label>
+					</div>
+					<div class="checks">
+						<label class="check"><input type="checkbox" name="novedades" checked> Deseo recibir información sobre novedades y ofertas.</label>
+						<label class="check"><input type="checkbox" name="condiciones" required> Declaro haber leído y aceptar las condiciones generales del programa y la normativa sobre protección de datos. <a href="#condiciones">Ver condiciones generales</a></label>
+					</div>
+
+					<h3>Datos de residencia</h3>
+					<div class="fields">
+						<label>País
+							<select name="pais">
+								<option value="argentina" selected>Argentina</option>
+								<option value="bolivia">Bolivia</option>
+								<option value="brasil">Brasil</option>
+								<option value="chile">Chile</option>
+								<option value="colombia">Colombia</option>
+								<option value="ecuador">Ecuador</option>
+								<option value="guyana">Guyana</option>
+								<option value="paraguay">Paraguay</option>
+								<option value="peru">Perú</option>
+								<option value="surinam">Surinam</option>
+								<option value="uruguay">Uruguay</option>
+								<option value="venezuela">Venezuela</option>
+							</select>
+						</label>
+						<label>Estado civil
+							<select name="estado_civil">
+								<option value="soltero" selected>Soltero/a</option>
+								<option value="casado">Casado/a</option>
+								<option value="divorciado">Divorciado/a</option>
+								<option value="viudo">Viudo/a</option>
+								<option value="separado">Separado/a</option>
+								<option value="conviviente">En convivencia</option>
+							</select>
+						</label>
+						<label>Provincia<input type="text" name="provincia"></label>
+						<label>Localidad<input type="text" name="localidad"></label>
+						<label>Dirección<input type="text" name="direccion"></label>
+						<label>Número<input type="text" name="numero"></label>
+						<label>Departamento<input type="text" name="departamento"></label>
+					</div>
+
+					<h3>Seguridad</h3>
+					<div class="fields">
+						<label>Contraseña<input type="password" name="password" autocomplete="new-password" required></label>
+						<label>Repetir contraseña<input type="password" name="password_confirmacion" autocomplete="new-password" required></label>
+					</div>
+					<button type="submit">Enviar registro</button>
+				</form>
+				<p class="note" id="condiciones">Las condiciones generales establecen el uso responsable del servicio y la protección de los datos personales.</p>
+			</section>
+		</div>
+		<footer>Mi web · Formularios de práctica</footer>
+	</main>
+</body>
+</html>
