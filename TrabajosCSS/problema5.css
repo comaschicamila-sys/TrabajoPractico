@@ -1,0 +1,19 @@
+#cabecera {
+  padding: 24px;
+  color: white;
+  background-color: #1d4e89;
+  text-align: center;
+}
+
+#cuerpo {
+  padding: 32px 24px;
+  color: #243447;
+  background-color: #f1f5f9;
+}
+
+#pie {
+  padding: 18px;
+  color: white;
+  background-color: #334155;
+  text-align: center;
+}
