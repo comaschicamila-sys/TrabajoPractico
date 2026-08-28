@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Directorio de blogs</title>
+  <style>
+    :root {
+      --ink: #1459a3;
+      --muted: #5e7e9e;
+      --paper: #f6f2e9;
+      --panel: #fffdf8;
+      --accent: #df5933;
+      --line: #ded7c9;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+
+    main {
+      width: min(960px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    header {
+      max-width: 680px;
+      margin-bottom: 46px;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font: 700 0.78rem/1.2 Arial, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.6rem, 7vw, 5.4rem);
+      line-height: 0.95;
+      font-weight: 400;
+    }
+
+    header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.15rem;
+      line-height: 1.6;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    section {
+      padding: 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--accent);
+    }
+
+    h2 {
+      margin: 0 0 24px;
+      font-size: 1.45rem;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    ul {
+      display: grid;
+      gap: 13px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    li { border-bottom: 1px solid var(--line); }
+    li:last-child { border-bottom: 0; }
+
+    a {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 0 0 13px;
+      color: var(--ink);
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+
+    a::after {
+      content: '\2192';
+      color: var(--accent);
+      font-family: Arial, sans-serif;
+      transition: transform 160ms ease;
+    }
+
+    a:hover, a:focus-visible { color: var(--accent); }
+    a:hover::after, a:focus-visible::after { transform: translateX(4px); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+    @media (max-width: 700px) {
+      main { padding: 44px 0; }
+      .sections { grid-template-columns: 1fr; }
+      section { padding: 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Una pequeña selección</p>
+      <h1>Directorio de blogs</h1>
+      <p>Elige cómo quieres visitar estos espacios de lectura y aprendizaje.</p>
+    </header>
+
+    <div class="sections">
+      <section>
+        <h2>Hacer la apertura en otra pestaña</h2>
+        <ul>
+          <li><a href="https://css-tricks.com/" target="_blank" rel="noopener noreferrer">CSS-Tricks</a></li>
+          <li><a href="https://alistapart.com/" target="_blank" rel="noopener noreferrer">A List Apart</a></li>
+          <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="noopener noreferrer">Smashing Magazine</a></li>
+          <li><a href="https://dev.to/" target="_blank" rel="noopener noreferrer">DEV Community</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Hacer la apertura en el mismo navegador</h2>
+        <ul>
+          <li><a href="https://css-tricks.com/" target="_self">CSS-Tricks</a></li>
+          <li><a href="https://alistapart.com/" target="_self">A List Apart</a></li>
+          <li><a href="https://www.smashingmagazine.com/" target="_self">Smashing Magazine</a></li>
+          <li><a href="https://dev.to/" target="_self">DEV Community</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
